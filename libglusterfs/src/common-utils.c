@@ -3070,7 +3070,7 @@ get_mem_size()
     memsize = page_size * num_pages;
 #endif
 
-#if defined GF_DARWIN_HOST_OS
+#if defined(GF_BSD_HOST_OS) || defined(GF_DARWIN_HOST_OS
 
     size_t len = sizeof(memsize);
     int name[] = {CTL_HW, HW_PHYSMEM};
