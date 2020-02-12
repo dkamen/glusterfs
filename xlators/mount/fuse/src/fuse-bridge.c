@@ -5943,7 +5943,7 @@ fuse_thread_proc(void *data)
         finh = (fuse_in_header_t *)iov_in[0].iov_base;
 
         if (res != finh->len
-#ifdef GF_DARWIN_HOST_OS
+#if defined(GF_DARWIN_HOST_OS) || (GF_BSD_HOST_OS)
             /* work around fuse4bsd/MacFUSE msg size miscalculation bug,
              * that is, payload size is not taken into account for
              * buffered writes
